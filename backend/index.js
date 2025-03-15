@@ -1,15 +1,14 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
-const connectDB = require("./config/db");
-const authRoutes = require("./routes/authRoute");
-
-require("dotenv").config();
-
+const connectDB = require("./config/db"); 
+const authRoutes = require("./routes/authRoute"); 
 const app = express();
 
-app.use(express.json());
+app.use(express.json()); 
 app.use(cors());
 
 connectDB();
@@ -26,7 +25,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "http://localhost:5000",
+        url: `http://localhost:${process.env.PORT || 5000}`, 
       },
     ],
   },
