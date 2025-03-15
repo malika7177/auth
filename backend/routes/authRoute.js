@@ -73,6 +73,9 @@ auth.post("/register", validateRegister, register);
  *                  token:
  *                    type: string
  *                    example: your_jwt_token
+ *                  role:
+ *                    type: string
+ *                    enum: [admin, user]
  *        400:
  *          description: Invalid credentials
  */
