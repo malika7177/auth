@@ -11,7 +11,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/auth/register', { username, password, role });
+            await axios.post(`${API_URL}/api/auth/register`, { username, password, role });
             if (role === 'admin') {
                 navigate('/admin'); 
             } else {

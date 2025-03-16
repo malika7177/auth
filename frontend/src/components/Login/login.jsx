@@ -10,7 +10,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
+            const response = await axios.post(`${API_URL}/api/auth/login`, { username, password });
             localStorage.setItem('token', response.data.token);
             const userRole = response.data.role;
             if (userRole === 'admin') {
