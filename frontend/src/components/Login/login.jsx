@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000'; 
+
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -19,7 +22,9 @@ const Login = () => {
                 navigate('/user');
             }
         } catch (error) {
-            alert('Login failed: ' + error.response.data);
+            const errorMsg = error.response ? error.response.data : 'Login failed: Unknown error';
+            setErrorMessage(errorMsg);
+            alert('Login failed: ' + errorMsg);
         }
     };
 
@@ -28,6 +33,7 @@ const Login = () => {
             <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
             <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
             <button type="submit">Login</button>
+            {errorMessage && <p>{errorMessage}</p>}
             <a href="/">Back</a>
         </form>
     );
