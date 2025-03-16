@@ -10,7 +10,8 @@ const app = express();
 
 app.use(express.json()); 
 app.use(cors({
-  origin: 'https://auth-theta-one.vercel.app/', 
+  origin: ['http://localhost:5173', 'https://auth-theta-one.vercel.app'],
+  credentials: true
 }));
 
 app.get('/', (req, res) => {
