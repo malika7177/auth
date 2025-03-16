@@ -24,7 +24,6 @@ const Login = () => {
         } catch (error) {
             const errorMsg = error.response ? error.response.data : 'Login failed: Unknown error';
             setErrorMessage(errorMsg);
-            alert('Login failed: ' + errorMsg);
         }
     };
 
