@@ -9,7 +9,13 @@ const authRoutes = require("./routes/authRoute");
 const app = express();
 
 app.use(express.json()); 
-app.use(cors());
+app.use(cors({
+  origin: 'https://auth-theta-one.vercel.app/', 
+}));
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the API');
+});
 
 connectDB();
 
@@ -34,6 +40,11 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+app.use((req, res, next) => {
+  console.log(`Received request: ${req.method} ${req.url}`);
+  next();
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
