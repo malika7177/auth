@@ -19,7 +19,7 @@ const { validateRegister, validateLogin } = require("../validation/validate");
 
 /**
  * @swagger
- *   /api/auth/register:
+ *  /register:
  *    post:
  *      tags: [Auth]
  *      summary: Register a new user
@@ -47,7 +47,7 @@ auth.post("/register", validateRegister, register);
 
 /**
  * @swagger
- *  /api/auth/login:
+ *  /login:
  *    post:
  *      tags: [Auth]
  *      summary: Login a user
