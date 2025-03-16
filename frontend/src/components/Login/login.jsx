@@ -31,6 +31,7 @@ const Login = () => {
             <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
             <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
             <button type="submit">Login</button>
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <a href="/">Back</a>
         </form>
     );

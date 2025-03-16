@@ -35,6 +35,7 @@ const Register = () => {
                 <option value="admin">Admin</option>
             </select>
             <button type="submit">Register</button>
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <a href="/">Back</a>
         </form>
     );

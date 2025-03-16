@@ -11,12 +11,17 @@ const app = express();
 app.use(express.json()); 
 app.use(
   cors({
-    origin: "http://localhost:5173", 
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: [
+      "http://localhost:5173", 
+      "https://auth-git-master-malika7177s-projects.vercel.app" 
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, 
+    credentials: true,
   })
 );
+
+app.options("*", cors());
 
 app.get('/', (req, res) => {
   res.send('Welcome to the API');
@@ -36,7 +41,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `https://${process.env.RENDER_EXTERNAL_URL || 'localhost:' + (process.env.PORT || 5000)}`, 
+        url: "https://auth-1-fzi4.onrender.com", 
       },
     ],
   },
@@ -53,5 +58,5 @@ app.use((req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+  console.log(`Server is running at ${PORT}`);
 });
