@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
+    console.log("Login component rendered");
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -35,6 +36,7 @@ const Login = () => {
             <button type="submit">Login</button>
             {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <a href="/">Back</a>
+            <button onClick={() => console.log("Button clicked")}>Test Button</button>
         </form>
     );
 };
