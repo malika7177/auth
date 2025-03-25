@@ -13,7 +13,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173", 
-      "https://auth-git-master-malika7177s-projects.vercel.app" 
+      "https://auth-theta-one.vercel.app/" 
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
     allowedHeaders: ["Content-Type", "Authorization"],
