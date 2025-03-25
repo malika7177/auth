@@ -13,6 +13,7 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { username, password });
+            console.log(response.data);
             localStorage.setItem('token', response.data.token);
             const userRole = response.data.role;
             if (userRole === 'admin') {
