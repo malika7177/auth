@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
-
+import "./login.css"
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -28,7 +28,7 @@ const Login = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='login'>
             <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
             <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
             <button type="submit">Login</button>

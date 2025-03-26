@@ -3,7 +3,7 @@ import './admin.css'
 
 const Admin = () => {
   return (
-    <div>
+    <div className='admin'>
       <Header />
     </div>
   )                                   
