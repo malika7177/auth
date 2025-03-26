@@ -1,12 +1,24 @@
 import React from 'react'
+import './admin.css'
 
 const Admin = () => {
   return (
     <div>
-      <h1>Welcome, to Admin page...</h1> <br />
-      <a href="/">Back</a>
+      <Header />
     </div>
   )                                   
 }
 
 export default Admin
+
+const Header = () => {
+  return (
+    <div>jdf</div>
+  )
+}
+
+const Sidebar = () => {
+  return (
+    <div></div>
+  )
+}
